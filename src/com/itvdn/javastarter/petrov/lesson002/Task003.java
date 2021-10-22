@@ -13,7 +13,7 @@ public class Task003 {
     public static void main(String[] args) {
         String s1 = "\nмоя строка 1";
         String s2 = "\tмоя строка 2";
-        String s3 = "моя строка 3";
+        String s3 = "\fмоя строка 3";
 
         System.out.println(s1);
         System.out.println(s2);
