@@ -13,16 +13,12 @@ import java.util.Scanner;
 public class Task002 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         System.out.println("Введите свое имя:");
         String name = sc.next();
-
         System.out.println("Введите свой возраст:");
         int age = sc.nextInt();
-
         System.out.println("Введите свой пол:");
         String sex = sc.next();
-
         sc.close();
 
         if (age > 18) {
