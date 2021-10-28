@@ -8,6 +8,6 @@ package com.itvdn.javastarter.petrov.lesson005.homework;
 
 public class Task002 {
     public static void main(String[] args) {
-        
+        System.out.println("");
     }
 }
