@@ -14,6 +14,7 @@ public class PowerOfTwo {
         System.out.println("Введите число:");
         int number = sc.nextInt();
         sc.close();
-        System.out.println("Число " + number + ((number & (number - 1)) == 0 ? " " : " не ") + "является степенью двойки.");
+        boolean is = number != 0 && (number & (number - 1)) == 0;
+        System.out.println("Число " + number + (is ? " " : " не ") + "является степенью двойки.");
     }
 }
