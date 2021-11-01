@@ -47,7 +47,19 @@ public class Task003_1 {
         int salary = sc.nextInt();
         System.out.println("Сколько у клиента есть денег на конец месяца:");
         int balance = sc.nextInt();
+        System.out.println("Сумма кредита:");
+        int sum = sc.nextInt();
         System.out.println("На какой срок клиент хочет взять кредит:");
         int period = sc.nextInt();
+        sc.close();
+        int difference = period * salary - period * (salary - balance) - sum;
+
+        if (difference >= 0) {
+            System.out.println("Поздравляем, Вам может быть выдан кредит с сроком на " + period + " месяц(-а/-ев) и суммой на " + sum + ".");
+        } else {
+            int possiblePeriod = Math.abs(difference) / salary + period + 1;
+            System.out.println("Вы можете взять кредит, но если увеличите кол-во месяцев до " + possiblePeriod + ".");
+            System.out.println("Или Вы можете уменьшить сумму кредита до " + (sum + difference) + " и за этот срок Вы сможете его погасить.");
+        }
     }
 }
