@@ -12,8 +12,8 @@ package com.itvdn.javastarter.petrov.lesson006.homework;
 
 public class Shapes {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 11;
+        int a = 13;
+        int b = 12;
 
         System.out.println("Прямоугольник: ");
 
@@ -45,14 +45,15 @@ public class Shapes {
         }
 
         System.out.println();
-        System.out.println("Равносторонний треугольник: ");
+        a = a % 2 == 0 ? a - 1 : a;
+        System.out.println("Равносторонний треугольник:");
 
         for (int i = 0; i < a; i++) {
-            for (int j = 0; j < b; j++) {
-                if (j == b / 2 + i || j == b / 2 - i || i == b / 2) {
+            for (int j = 0; j < a; j++) {
+                if (j == a / 2 + i || j == a / 2 - i || (i == a / 2 && j % 2 == 0)) {
                     System.out.print("*");
 
-                    if (i == b / 2 && b % 2 == 0 && j == b - 1) {
+                    if (i == a / 2 && a % 2 == 0 && j == a - 1) {
                         System.out.print("*");
                     }
                 } else {
@@ -66,9 +67,11 @@ public class Shapes {
         System.out.println();
         System.out.println("Ромб:");
 
-        for (int i = 0; i < a / 2; i++) {
-            for (int j = 0; j < b; j++) {
-                if (j == b / 2 + i || j == b / 2 - i) {
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a; j++) {
+                if (i < a / 2 && (j == a / 2 + i || j == a / 2 - i)) {
+                    System.out.print("*");
+                } else if (i >= a / 2 && (j == i - a / 2 || j == a / 2 + a - i - 1)) {
                     System.out.print("*");
                 } else {
                     System.out.print(" ");
