@@ -41,7 +41,7 @@ public class Task001 {
 
         System.out.println(result);
 
-        // Реализация через тернарный оператор
+        // Реализация через тернарник
         result = humanData + (isManPensioner || isWomanPensioner ? validResult : invalidResult);
         System.out.println(result);
 
