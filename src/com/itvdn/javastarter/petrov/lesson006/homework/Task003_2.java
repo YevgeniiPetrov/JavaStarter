@@ -58,7 +58,7 @@ public class Task003_2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Сколько клиент получает:");
-        int salary = sc.nextInt();
+        sc.nextInt();
         System.out.println("Сколько у клиента есть денег на конец месяца:");
         int balance = sc.nextInt();
         System.out.println("Сумма кредита:");
@@ -67,17 +67,21 @@ public class Task003_2 {
         int period = sc.nextInt();
         System.out.println("Сумма прибавки к зарплате:");
         int salaryBonus = sc.nextInt();
-        System.out.println("Периодичность прибавки зарплаты (кол-во раз  вмесяц):");
+        System.out.println("Периодичность прибавки зарплаты (кол-во раз в месяц):");
         int periodOfSalaryBonus = sc.nextInt();
         sc.close();
-        int difference = period * (salary + periodOfSalaryBonus * salaryBonus) - period * (salary - balance) - sum;
+        int difference = sum;
 
-        if (difference >= 0) {
-            System.out.println("Поздравляем, Вам может быть выдан кредит с сроком на " + period + " месяц(-а/-ев) и суммой на " + sum + ".");
+        for (int i = 0; i < period; i++) {
+            difference -= balance + periodOfSalaryBonus * salaryBonus;
+        }
+
+        if (difference <= 0) {
+            System.out.printf("Поздравляем, Вам может быть выдан кредит с сроком на %d месяц(-а/-ев) и суммой на %d.", period, sum);
         } else {
-            int possiblePeriod = Math.abs(difference) / salary + period + 1;
-            System.out.println("Вы можете взять кредит, но если увеличите кол-во месяцев до " + possiblePeriod + ".");
-            System.out.println("Или Вы можете уменьшить сумму кредита до " + (sum + difference) + " и за этот срок Вы сможете его погасить.");
+            int possiblePeriod = sum / (balance + periodOfSalaryBonus * salaryBonus) + 1;
+            System.out.printf("Вы можете взять кредит, но если увеличите кол-во месяцев до %d.\n", possiblePeriod);
+            System.out.printf("Или Вы можете уменьшить сумму кредита до %d и за этот срок Вы сможете его погасить.", sum - difference);
         }
     }
 }

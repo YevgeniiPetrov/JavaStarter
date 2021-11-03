@@ -26,7 +26,6 @@ public class Task002 {
             for (int j = 0; j < m; j++) {
                 System.out.print(i * m + j + " ");
             }
-
             System.out.println();
         }
     }
