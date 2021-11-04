@@ -79,7 +79,8 @@ public class Task003_2 {
         if (difference <= 0) {
             System.out.printf("Поздравляем, Вам может быть выдан кредит с сроком на %d месяц(-а/-ев) и суммой на %d.", period, sum);
         } else {
-            int possiblePeriod = sum / (balance + periodOfSalaryBonus * salaryBonus) + 1;
+            int possiblePeriod = sum / (balance + periodOfSalaryBonus * salaryBonus);
+            possiblePeriod += sum % (balance + periodOfSalaryBonus * salaryBonus) == 0 ? 0 : 1;
             System.out.printf("Вы можете взять кредит, но если увеличите кол-во месяцев до %d.\n", possiblePeriod);
             System.out.printf("Или Вы можете уменьшить сумму кредита до %d и за этот срок Вы сможете его погасить.", sum - difference);
         }
