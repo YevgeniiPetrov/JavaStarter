@@ -54,7 +54,7 @@ public class Arithmetics {
                 System.out.printf("%d * %d = %d", firstNumber, secondNumber, mul(firstNumber, secondNumber));
                 break;
             case "/":
-                System.out.printf("%d . %d = %d", firstNumber, secondNumber, div(firstNumber, secondNumber));
+                System.out.printf("%d / %d = %d", firstNumber, secondNumber, div(firstNumber, secondNumber));
                 break;
             default:
                 System.out.println("Указанной арифметической операции нет / не предусмотрено.");
