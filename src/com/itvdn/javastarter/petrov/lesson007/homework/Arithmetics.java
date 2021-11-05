@@ -25,12 +25,10 @@ public class Arithmetics {
 
     public static double div(double firstNumber, double secondNumber) {
         Scanner sc = new Scanner(System.in);
-
         while (secondNumber == 0) {
             System.out.println("Делить на ноль нельзя. Повторите ввод второго числа:");
             secondNumber = sc.nextInt();
         }
-
         return firstNumber / secondNumber;
     }
 

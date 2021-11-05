@@ -19,17 +19,14 @@ public class NumbersCheck {
 
     public static boolean isPrimeNumber(int number) {
         number = Math.abs(number);
-
         if (number < 2) {
             return true;
         }
-
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }
         }
-
         return true;
     }
 

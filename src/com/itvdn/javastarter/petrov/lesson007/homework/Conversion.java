@@ -16,35 +16,27 @@ public class Conversion {
 
     public static String getCurrency(Scanner scanner, String message) {
         String currency;
-
         while (true) {
             System.out.printf(message, UAH, USD, EUR);
             currency = scanner.nextLine();
-
             if (currency.equals(UAH) || currency.equals(USD) || currency.equals(EUR)) {
                 break;
             }
-
             message = "Ввод валюты выполнен неверно. Повторите ввод: ";
         }
-
         return currency;
     }
 
     public static double getSum(Scanner scanner, String message, String currency) {
         double sum;
-
         while (true) {
             System.out.printf(message, currency);
             sum = scanner.nextDouble();
-
             if (sum >= 0) {
                 break;
             }
-
             message = "Ввод суммы выполнен неверно. Повторите ввод: ";
         }
-
         return sum;
     }
 
