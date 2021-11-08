@@ -15,8 +15,10 @@ public class Bank {
         double monthlyPayment = (double) creditAmount / creditPeriod;
         double amountOwed = (paymentNumber - 1) * monthlyPayment - amountOfPayments + amountOfCurrentPayment;
         boolean isAmountOwed = amountOwed > 0;
-        System.out.printf("Состояние кредта:\n- сумма кредита: %d;\n- кредит взят на период: %d;\n- сделано платежей: %d;\n- минимальная сумма платежа: %.2f;\n", creditAmount, creditPeriod, paymentNumber, monthlyPayment);
-        System.out.printf("- сумма задолженности: %.2f;\n- сумма переплаты: %.2f;\n- отсутствие долга: %s.\n", isAmountOwed ? amountOwed : 0, Math.abs(isAmountOwed ? 0 : amountOwed), (isAmountOwed ? "нет" : "дат"));
+        System.out.printf("Состояние кредта:\n- сумма кредита: %d;\n- кредит взят на период: %d;\n- сделано платежей: %d;\n- минимальная сумма платежа: %.2f;\n",
+                creditAmount, creditPeriod, paymentNumber, monthlyPayment);
+        System.out.printf("- сумма задолженности: %.2f;\n- сумма переплаты: %.2f;\n- отсутствие долга: %s.\n",
+                isAmountOwed ? amountOwed : 0, Math.abs(isAmountOwed ? 0 : amountOwed), (isAmountOwed ? "нет" : "дат"));
     }
 
     public static void creditInfo(int amountOfCurrentPayment) {
