@@ -30,6 +30,7 @@ public class ReversedArray {
         return array;
     }
 
+    // Этот метод требуют в условии задачи :)
     public static int[] myReverse(int[] array) {
         int[] newArray = new int[array.length];
         for (int i = 0; i < array.length; i++) {
@@ -40,8 +41,8 @@ public class ReversedArray {
 
     public static int [] subArray(int [] array, int index, int count) {
         int[] subArray = new int[count];
-        for (int i = 0; i < count; i++) {
-            subArray[i] = (i + index) < array.length ? array[i + index] : 1;
+        for (int i = 0, j = 1; i < count; i++) {
+            subArray[i] = (i + index) < array.length ? array[i + index] : j++;
         }
         return subArray;
     }

@@ -19,11 +19,25 @@ public class CustomerArray {
         return array;
     }
 
-    public static void printArray(int[] array) {
+    public static void arrayInfo(int[] array) {
+        int max = array[0];
+        int min = array[0];
+        int sum = 0;
+        String elements = "";
+        String oddElements = "";
         for (int i = 0; i < array.length; i++) {
-            System.out.printf("%d ", array[i]);
+            max = array[i] > max ? array[i] : max;
+            min = array[i] < min ? array[i] : min;
+            sum += array[i];
+            elements += array[i] + " ";
+            oddElements += array[i] % 2 == 1 ? array[i] + " " : "";
         }
-        System.out.println();
+        System.out.printf("Массив: %s\n", elements);
+        System.out.printf("Наибольшее значение массива: %d\n", max);
+        System.out.printf("Наименьшее значение массива: %d\n", min);
+        System.out.printf("Сумма всех элементов: %d\n", sum);
+        System.out.printf("Среднее арифметическое всех элементов: %.2f\n", sum / (double) array.length);
+        System.out.printf("Все нечетные значения: %s\n", oddElements);
     }
 
     public static int getMax(int[] array) {
@@ -34,47 +48,11 @@ public class CustomerArray {
         return max;
     }
 
-    public static int getMin(int[] array) {
-        int min = array[0];
-        for (int i = 0; i < array.length; i++) {
-            min = array[i] < min ? array[i] : min;
-        }
-        return min;
-    }
-
-    public static int getSum(int[] array) {
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
-        }
-        return sum;
-    }
-
-    public static double getAverage(int[] array) {
-        return getSum(array) / (double) array.length;
-    }
-
-    public static void printOdds(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 1) {
-                System.out.printf("%d ", array[i]);
-            }
-        }
-        System.out.println();
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Веедите размер массива:");
+        System.out.print("Веедите размер массива: ");
         int arrayLength = sc.nextInt();
         sc.close();
-        int[] array = createArray(arrayLength);
-        printArray(array);
-        System.out.printf("Наибольшее значение массива: %d\n", getMax(array));
-        System.out.printf("Наименьшее значение массива: %d\n", getMin(array));
-        System.out.printf("Сумма всех элементов: %d\n", getSum(array));
-        System.out.printf("Среднее арифметическое всех элементов: %.2f\n", getAverage(array));
-        System.out.print("Все нечетные значения: ");
-        printOdds(array);
+        arrayInfo(createArray(arrayLength));
     }
 }
