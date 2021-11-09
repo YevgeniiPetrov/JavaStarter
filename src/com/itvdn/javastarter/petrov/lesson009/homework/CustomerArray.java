@@ -40,14 +40,6 @@ public class CustomerArray {
         System.out.printf("Все нечетные значения: %s\n", oddElements);
     }
 
-    public static int getMax(int[] array) {
-        int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            max = array[i] > max ? array[i] : max;
-        }
-        return max;
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Веедите размер массива: ");
