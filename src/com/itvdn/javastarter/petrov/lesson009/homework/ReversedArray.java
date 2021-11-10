@@ -41,8 +41,16 @@ public class ReversedArray {
 
     public static int [] subArray(int [] array, int index, int count) {
         int[] subArray = new int[count];
-        for (int i = 0, j = 1; i < count; i++) {
-            subArray[i] = (i + index) < array.length ? array[i + index] : j++;
+        for (int i = 0, j = 0; i < count; i++) {
+            if (i + index < array.length) {
+                subArray[i] = array[i + index];
+            } else if (j < index) {
+                subArray[i] = array[j++];
+            } else {
+                // Тут можно добавлять в хвост нового массива другие числа, например,
+                // subArray[i] = 1
+                // или ничего не делать, тем самым оставляя в яцейках нули
+            }
         }
         return subArray;
     }
@@ -54,6 +62,6 @@ public class ReversedArray {
         System.out.println("Инвертированный массив:");
         printArray(myReverse(array));
         System.out.println("Часть массива:");
-        printArray(subArray(array, 5, 8));
+        printArray(subArray(array, 5, 15));
     }
 }
