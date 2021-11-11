@@ -35,6 +35,15 @@ public class AddTask001 {
         System.out.println();
     }
 
+    public static void printArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.printf("%d ", array[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
     // 1. Найти макс число в массиве.
     public static int getMax(int[] array) {
         int max = array[0];
@@ -118,7 +127,13 @@ public class AddTask001 {
     }
 
     public static int[][] fillArray2(int[][] array, int firstIterator, int secondIterator) {
-        return array;
+        if (firstIterator == array.length) {
+            return array;
+        } else if (secondIterator == array[firstIterator].length) {
+            return fillArray2(array, ++firstIterator, 0);
+        }
+        array[firstIterator][secondIterator] = (int) (Math.random() * 100);
+        return fillArray2(array, firstIterator, ++secondIterator);
     }
 
     public static void main(String[] args) {
@@ -130,8 +145,12 @@ public class AddTask001 {
         System.out.printf("Сумма всех чисел массива: через цикл - %d; через рекурсию: %d.\n", getSum(array), getSum(array, 0, 0));
         System.out.printf("Среднее число всех чисел массива: через цикл - %.2f; через рекурсию - %.2f.\n", getAverage(array), getAverage(array, 0, 0));
         System.out.print("Одномерный массив: через цикл - ");
-        printArray(fillArray(array));
+        printArray(fillArray(new int[10]));
         System.out.print("Одномерный массив: через рекурсию - ");
-        printArray(fillArray(array, 0));
+        printArray(fillArray(new int[10], 0));
+        System.out.println("Двумерный массив: через цикл - ");
+        printArray(fillArray2(new int[10][10]));
+        System.out.println("Двумерный массив: через рекурсию - ");
+        printArray(fillArray2(new int[10][10], 0,0));
     }
 }
